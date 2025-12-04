@@ -192,7 +192,7 @@ MIT License - See [LICENSE](LICENSE) file for details
 
 ### Security Vulnerability Disclosure
 For critical security issues, please contact:
-- **Email**: security@edipcam.com
+- **Email**: edipcam0@icloud.com
 - **PGP Key**: Available on project page
 - **Response Time**: 48 hours for critical issues
 
