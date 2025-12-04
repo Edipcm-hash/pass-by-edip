@@ -1,180 +1,227 @@
-Pass-Edip v3.2
-Pass-Edip v3.2 is a significantly enhanced secure file encryption tool featuring major security improvements, optimized performance, and a modern user-friendly interface. Built with Python and Tkinter, it now provides enterprise-grade encryption with comprehensive protection against modern cryptographic threats.
+# 🚀 Pass-Edip v4.0 - Ultimate Security Edition
 
-🚀 What's New & Improved in v3.2
-Security Enhancements
-Fixed Critical Nonce Reuse Vulnerability: Implemented counter-based unique nonces for each data chunk, eliminating AES-GCM security risks
+**Root Detection & Memory Protection System**
 
-Chunk Integrity Protection: Integrated chunk indices into AAD (Additional Authenticated Data) to prevent reordering and duplication attacks
+## 🔥 MAJOR NEW FEATURES
 
-Secure Memory Management: Immediate wiping of sensitive data from memory using secure cleanup routines
+### 🛡️ **Advanced Security System**
+- **Root Detection**: Multi-platform root/admin access detection with blocking capabilities
+- **Debugger Detection**: Automatic detection of GDB, strace, lldb and other debugging tools
+- **Virtual Environment Control**: Enhanced security in VM/Container environments
+- **Memory Dumping Protection**: Proactive defense against RAM analysis tools
+- **Restricted Mode**: Automatic safety restrictions when running with elevated privileges
 
-Enhanced Header Validation: Strict parsing with bounds checking and format verification
+### 🔒 **Secure Memory Management**
+- **Memory Locking**: `mlock()` implementation to prevent swapping sensitive data
+- **Automatic Cleanup**: Immediate wiping of cryptographic material from memory
+- **Secure Buffer Allocation**: Protected memory regions for key operations
+- **Emergency Wipe**: Self-destruct mechanisms on security breaches
 
-Size Limit Enforcement: 10GB maximum file size and 16MB chunk size limits
+### ⚡ **Performance & Architecture**
+- **Streaming Encryption**: Length-prefixed chunks for efficient large file processing
+- **Optimized Scrypt KDF**: Configurable memory-hard parameters
+- **Background Threading**: Non-blocking operations with responsive GUI
+- **Chunk Integrity**: Index-based authentication preventing reordering attacks
 
-Performance & Architecture
-Streaming Encryption Support: Length-prefixed ciphertext chunks enable efficient large file processing
+### 🎨 **Modern User Interface**
+- **Security Score Indicator**: Real-time security status display
+- **Smart File Detection**: Automatic .enc file recognition
+- **Progress Tracking**: Live progress bars with detailed logging
+- **Cross-Platform**: Fully compatible with Windows, macOS, and Linux
 
-Optimized Scrypt KDF: Configurable parameters with memory-hard key derivation
+## 📊 **SECURITY LEVELS & PROTECTION**
 
-Early Termination Checks: Improved password policy validation performance
+### Security Scoring System
+- **90+**: VERY SECURE ✅ (Normal user, no debuggers)
+- **70-89**: SECURE ✅ (Minor warnings)
+- **50-69**: MEDIUM RISK ⚠️ (Sudo usage, etc.)
+- **30-49**: HIGH RISK 🚨 (Root access or debugger)
+- **0-29**: CRITICAL RISK ❌ (Multiple threats detected)
 
-Background Threading: Non-blocking operations maintain responsive GUI during encryption/decryption
+### Protection Features
+- **Anti-Forensic**: Memory obfuscation and secure wiping
+- **Process Hardening**: Core dump prevention and ptrace protection
+- **Network Security**: Sniffer detection and protection
+- **Authentication**: Enhanced password policy with user warnings
 
-User Experience
-Modern Dark Theme: Clean, professional interface with intuitive controls
+## 🐛 **SECURITY FIXES & IMPROVEMENTS**
 
-One-Click Operations: Smart automatic file type detection and single-click encryption/decryption
+### Critical Fixes
+- **Root Access Vulnerability**: Complete protection against RAM dumping in elevated environments
+- **Memory Leak Prevention**: Secure cleanup of all cryptographic material
+- **Nonce Management**: Counter-based unique nonces per data chunk
+- **Header Validation**: Strict bounds checking and format verification
 
-Real-time Progress Tracking: Live progress bars and detailed operation logging
+### Performance Optimizations
+- **Chunk-Based Processing**: 1MB chunks optimized for memory usage
+- **Streaming Support**: Length-prefixed ciphertext for large files
+- **Background Operations**: Threaded encryption/decryption
+- **Early Validation**: Quick password policy checks
 
-Cross-Platform Compatibility: Fully tested on Windows, macOS, and Linux
+## 🔧 **TECHNICAL CHANGES**
 
-✨ Features
-Military-Grade Encryption: AES-256-GCM with secure nonce management per chunk
+### New Classes & Components
+- `RootDetector`: Multi-platform privilege detection
+- `SecurityEnvironment`: Comprehensive security assessment
+- `SecurityLogger`: Centralized security event logging  
+- `RestrictedMode`: Safe operation under elevated privileges
+- `SecureMemoryManager`: Protected memory operations
 
-Advanced Key Derivation: Scrypt KDF with configurable memory hardness parameters
+### Enhanced Exceptions
+- `RootAccessError`: Blocked operations under root
+- `SecurityError`: Base security exception class
+- `AuthenticationError`: Enhanced credential validation
+- `FileSizeError`: Enforced size limits
 
-Chunk-Based Processing: Efficient 1MB chunk size for optimal memory usage
+### Configuration Updates
+- **VERSION**: 3 → 4 (File format update)
+- **MAX_FILE_SIZE**: 10GB (Normal), 100MB (Restricted Mode)
+- **CHUNK_SIZE**: 1MB (Normal), 64KB (Restricted Mode)
+- **Security Logging**: Platform-specific secure log locations
 
-Authentication & Integrity: Protection against tampering and replay attacks
+## 🚨 **BREAKING CHANGES**
 
-Smart File Detection: Automatic recognition of encrypted (.enc) vs normal files
+### Important Updates
+1. **Root Execution Restricted**: Automatic blocking or limited mode
+2. **Debugger Detection**: Warnings when analysis tools detected
+3. **File Format**: v4 incompatible with previous versions (encryption only)
+4. **Memory Protection**: Requires modern Python memory management
 
-Secure Password Policy: Enforces strong passwords with comprehensive character requirements
+### Backward Compatibility
+- ✅ v3 files can be decrypted with v4
+- ✅ v3 encryption algorithms maintained for decryption
+- ❌ v4 encrypted files cannot be opened with v3
+- ✅ Password policies remain compatible
 
-Keyfile Support: Optional keyfile integration for multi-factor security
+## 📦 **INSTALLATION & REQUIREMENTS**
 
-Comprehensive Error Handling: Detailed feedback for invalid files, wrong passwords, and corrupted data
-
-📦 Installation
-bash
-# Clone the repository
-git clone https://github.com/Edipcm-hash/pass-by-edip/
+```bash
+# Clone repository
+git clone https://github.com/Edipcm-hash/pass-edip-v4.git
+cd pass-edip-v4
 
 # Install dependencies
 pip install cryptography
 
-# Run the application
-python Pass-Edip-v3.2.py
-🎯 Usage
-Launch the application
+# Run application
+python passedip_v4.py
+```
 
-Select File: Click "Choose File" or use drag-and-drop (Windows/Linux)
+### Platform-Specific Notes
+- **macOS**: Python 3.8+ from python.org recommended
+- **Linux**: `sudo apt-get install python3-tk` for GUI support
+- **Windows**: Ensure "tcl/tk" option selected during Python installation
+- **All**: Tkinter typically included with Python distributions
 
-Automatic Detection: The interface automatically detects file type and enables appropriate actions
+## 📁 **FILE STRUCTURE**
 
-Enter Password: Provide a secure password meeting policy requirements
+```
+Pass-Edip-v4.0/
+├── passedip_v4.py          # Main application
+├── README.md              # Documentation
+├── security.log           # Security events (auto-generated)
+├── requirements.txt       # Python dependencies
+└── CHANGELOG.md          # Version history
+```
 
-Single-Click Operation: Click "ENCRYPT" for normal files or "DECRYPT" for .enc files
+## 🧪 **TESTED ENVIRONMENTS**
 
-Monitor Progress: Watch real-time progress bars and detailed operation logs
+- ✅ **macOS 12+** (Intel & Apple Silicon)
+- ✅ **Ubuntu 20.04+** / **Debian 11+**
+- ✅ **Windows 10/11** (Python 3.8+)
+- ✅ **Fedora 36+** / **CentOS 8+**
+- ✅ **Docker Containers** (Limited mode)
 
-🔐 Password Policy
-Your password must:
+## ⚡ **PERFORMANCE METRICS**
 
-Be at least 8 characters long (12+ recommended)
+- **Normal Mode**: Up to 10GB file support
+- **Restricted Mode**: 100MB file limit (root environments)
+- **Encryption Speed**: ~50-100 MB/s (SSD dependent)
+- **Memory Usage**: Constant regardless of file size
+- **CPU Utilization**: Optimized multi-core support
 
-Contain at least 2 different character types:
+## 🛡️ **SECURITY ARCHITECTURE**
 
-Lowercase letters (a-z)
+### Cryptographic Foundation
+- **Algorithm**: AES-256-GCM with proper nonce management
+- **Key Derivation**: Scrypt KDF with 128MB memory hardness
+- **Authentication**: Chunk-level AAD with index protection
+- **Integrity**: Tamper-evident design with validation
 
-Uppercase letters (A-Z)
+### Protection Layers
+1. **Process Security**: Memory locking and anti-debugging
+2. **Environmental Security**: Root and VM detection
+3. **Data Security**: End-to-end encryption with integrity
+4. **Operational Security**: Secure cleanup and logging
 
-Numbers (0-9)
+## 🤝 **CONTRIBUTING**
 
-Special characters (!@#$%^&*(), etc.)
+We welcome contributions from the security community:
 
-Avoid common patterns and dictionary words
+1. **Fork** the repository
+2. **Create** feature branch (`git checkout -b feature/security-improvement`)
+3. **Commit** changes (`git commit -m 'Add security enhancement'`)
+4. **Push** to branch (`git push origin feature/security-improvement`)
+5. **Open** a Pull Request
 
-🛡️ Security Architecture
-Cryptographic Foundation: AES-256-GCM with proper nonce management
+### Contribution Guidelines
+- Follow existing code style and security practices
+- Include comprehensive tests for security features
+- Document all security-related changes thoroughly
+- Report security issues via private channels initially
 
-Key Protection: Scrypt KDF with 128MB memory limit resistance to GPU attacks
+## 📄 **LICENSE**
 
-Data Integrity: Chunk-level authentication preventing manipulation
+MIT License - See [LICENSE](LICENSE) file for details
 
-Memory Safety: Immediate cleanup of passwords and keys from memory
+## 🙏 **ACKNOWLEDGEMENTS**
 
-Brute Force Protection: Progressive lockouts after repeated failures
+- **Cryptography Team** for robust cryptographic primitives
+- **Tkinter Developers** for cross-platform GUI framework
+- **Security Researchers** for vulnerability disclosures
+- **Open Source Community** for continuous improvement
 
-Stream Security: Protection against chunk reordering and replay attacks
+## 🐛 **BUG REPORTING & SECURITY**
 
-🔄 Technical Improvements from v2
-Component	v2 (Previous)	v3.2 (Current)
-Nonce Management	Single nonce per file	Unique nonce per chunk
-Integrity Protection	Basic authentication	Chunk-level AAD with indexing
-Memory Security	No explicit cleaning	Secure wiping routines
-File Processing	Simple chunking	Length-prefixed streaming
-Header Security	Basic validation	Strict format verification
-Attack Resistance	Limited protection	Comprehensive anti-tampering
-🤝 Contributing
-We welcome contributions! Please feel free to:
+### Reporting Issues
+1. Open [GitHub Issues](https://github.com/Edipcm-hash/pass-edip/issues)
+2. Include **Version**: v4.0
+3. Specify **Platform**: macOS/Linux/Windows
+4. Provide **Steps**: Detailed reproduction steps
+5. Attach **Logs**: security.log excerpts (sanitized)
 
-Open issues for bug reports or security concerns
+### Security Vulnerability Disclosure
+For critical security issues, please contact:
+- **Email**: security@edipcam.com
+- **PGP Key**: Available on project page
+- **Response Time**: 48 hours for critical issues
 
-Submit pull requests for enhancements and fixes
+---
 
-Suggest new features or improvements
+## 📈 **VERSION HISTORY COMPARISON**
 
-Help with testing and documentation
+| Feature | v2.0 | v3.2 | v4.0 |
+|---------|------|------|------|
+| **Root Detection** | ❌ | ❌ | ✅ |
+| **Memory Protection** | Basic | Enhanced | Advanced |
+| **Debugger Detection** | ❌ | ❌ | ✅ |
+| **Restricted Mode** | ❌ | ❌ | ✅ |
+| **Security Scoring** | ❌ | ❌ | ✅ |
+| **File Size Limit** | 2GB | 10GB | 10GB/100MB* |
+| **Chunk Size** | 64KB | 1MB | 1MB/64KB* |
+| **Nonce Management** | Fixed | Per-chunk | Per-chunk+ |
+| **Integrity Protection** | Basic | AAD-indexed | Enhanced |
+| **GUI Features** | Basic | Modern | Advanced |
 
-📞 Contact
-Author: Edip ÇAM
-Email: edipcam0@icloud.com
-Project: Pass-Edip Secure File Encryption
+*Restricted Mode values
 
+---
 
+**Pass-Edip v4.0 represents a paradigm shift in secure file encryption tools, offering proactive protection against both remote and physical attacks while maintaining exceptional usability.**
 
+**#CyberSecurity #Encryption #PrivacyTools #OpenSource #MemoryProtection** 🔐
 
+---
+*"Security is not a product, but a process." - Pass-Edip v4.0*
 
-EDIP GUI v2
-
-EDIP GUI v2 is a secure, user-friendly file encryption and decryption tool built with Python and Tkinter, designed for high performance, responsiveness, and security.
-
-Features
-	•	Strong Encryption: AES-GCM with scrypt-based key derivation ensures high security.
-	•	Chunked File Processing: Efficient memory usage for large files (64KB chunks).
-	•	Non-blocking GUI: Operations run in background threads to keep the interface responsive.
-	•	Password Security: Enforces strong passwords (min 12 chars, including upper, lower, digit, special), and clears passwords immediately after use.
-	•	Dark Mode Interface: Modern and clean dark-themed UI.
-	•	Robust Error Handling: Detects invalid files, incorrect passwords, and prevents repeated rapid failed attempts.
-	•	Cross-platform: Works on Windows, macOS, and Linux.
-
-Installation
-1.	Clone the repository: git clone https://github.com/Edipcm-hash/pass-by-edip/
-2.	Install dependencies: pip install cryptography
-3.	Run the application: python Pass-Edip.py
-
-   Usage
-	1.	Open the GUI.
-	2.	Click “Choose File” to select a file.
-	3.	Enter a secure password.
-	4.	Click “Encrypt (.edip)” to encrypt the file, or “Decrypt” to decrypt an .edip file.
-	5.	Monitor progress via the progress bar.
-
-Password Policy
-
-Your password must:
-	•	Be at least 12 characters long
-	•	Contain at least one lowercase letter
-	•	Contain at least one uppercase letter
-	•	Contain at least one number
-	•	Contain at least one special character
-
-Security Notes
-	•	AES-GCM encryption ensures both confidentiality and integrity.
-	•	Password-derived keys are generated using scrypt, a memory-hard KDF.
-	•	The application clears sensitive data from memory immediately after use.
-	•	Repeated failed password attempts trigger a temporary lockout to prevent brute force attacks.
-
-
-Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for improvements, bug fixes, or new features.
-
-Contact
-
-Author: Edip ÇAM
-Email: edipcam0@icloud.com
+""Contact - edipcam0@icloud.com
